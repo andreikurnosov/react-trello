@@ -11,6 +11,10 @@
 # production
 /build
 
+# backend modules
+/trello-backend/node_modules
+/trello-backend/yarn.lock
+
 # misc
 .DS_Store
 .env.local
