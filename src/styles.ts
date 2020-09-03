@@ -2,10 +2,8 @@ import styled from 'styled-components'
 
 interface DragPreviewContainerProps {
   isHidden?: boolean
+  isPreview?: boolean
 }
-export const DragPreviewContainer = styled.div<DragPreviewContainerProps>`
-  opacity: ${(props) => (props.isHidden ? 0.3 : 1)};
-`
 
 export const AppContainer = styled.div`
   align-items: flex-start;
@@ -15,6 +13,11 @@ export const AppContainer = styled.div`
   height: 100%;
   width: 100%;
   padding: 20px;
+`
+
+export const DragPreviewContainer = styled.div<DragPreviewContainerProps>`
+  transform: ${(props) => (props.isPreview ? 'rotate(5deg)' : undefined)};
+  opacity: ${(props) => (props.isHidden ? 0.5 : 1)};
 `
 
 export const ColumnContainer = styled(DragPreviewContainer)`
@@ -32,7 +35,7 @@ export const ColumnTitle = styled.div`
   font-weight: bold;
 `
 
-export const CardContainer = styled.div`
+export const CardContainer = styled(DragPreviewContainer)`
   background-color: #fff;
   cursor: pointer;
   margin-bottom: 0.5rem;
@@ -95,5 +98,5 @@ export const CustomDragLayerContainer = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 1000;
 `
